@@ -20,7 +20,7 @@ COPY . .
 COPY --from=frontend-builder /frontend/build ./frontend/build
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
   -ldflags='-w -s -extldflags "-static"' -a \
-  -o engine ./_cmd/${APP_NAME}/main.go && upx -9 engine
+  -o engine ./cmd/${APP_NAME}/main.go && upx -9 engine
 
 # Stage 3: Run the binary
 FROM gcr.io/distroless/static

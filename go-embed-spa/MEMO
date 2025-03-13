@@ -1,5 +1,30 @@
 
 https://github.com/aprakasa/go-embed-spa
 
+## Build the image
+    Go HTTP standard library
+    
+    make build
+    Echo framework
+    
+    make build APP_NAME=echo
+    Fiber framework
+    
+    make build APP_NAME=fiber
+
+## Run the application
+    The default port is 5050, configure a runnable app port with APP_PORT=xxxx.
+    
+    Go HTTP standard library
+    
+    make run
+    Echo framework
+    
+    make run APP_NAME=echo APP_PORT=5051
+    Fiber framework
+    
+    make run APP_NAME=fiber APP_PORT=5052
+
+
 
 

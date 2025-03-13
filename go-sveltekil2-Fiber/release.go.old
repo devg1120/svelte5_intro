@@ -1,0 +1,60 @@
+// +build release
+
+package main
+
+import (
+	"embed"
+	"io/fs"
+	"log"
+	"net/http"
+
+        //"strings"
+        //"fmt"
+        //"os"
+        //"errors"
+)
+
+//go:generate sh -c "cd frontend; npm run build"
+//go:embed frontend/build/*
+var files embed.FS
+
+func SvelteKitHandler(path string) http.Handler {
+        fsys, err := fs.Sub(files, "frontend/build")
+        if err != nil {
+                log.Fatal(err)
+        } else {
+                log.Print("fsys ok", fsys)
+        }
+        filesystem := http.FS(fsys)
+
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+                /*
+                path := strings.TrimPrefix(r.URL.Path, path)
+                _, err := filesystem.Open(path)
+                if errors.Is(err, os.ErrNotExist) {
+                        path = fmt.Sprintf("%s.html", path)
+                }
+                */
+                log.Print(path)
+                r.URL.Path = path
+                http.FileServer(filesystem).ServeHTTP(w, r)
+        })
+}
+
+/*
+//go:generate sh -c "cd frontend; npm run build"
+//go:embed frontend/build/*
+var content embed.FS
+*/
+
+func init() {
+/*
+	pub, err := fs.Sub(content, "frontend/build")
+	if err != nil {
+		log.Fatal(err)
+	}
+	http.Handle("/", http.FileServer(http.FS(pub)))
+*/
+	http.Handle("/",SvelteKitHandler("/"))
+}
+

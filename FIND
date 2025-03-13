@@ -1,1 +1,7 @@
 find . -name .git
+
+
+find . -name .gitignore  | xargs grep -n "cmd"
+
+
+
