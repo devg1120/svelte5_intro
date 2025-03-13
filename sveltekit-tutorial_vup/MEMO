@@ -1,0 +1,40 @@
+
+SvelteKit チュートリアル - 記事投稿サイトを作ってみよう
+
+https://azukiazusa.dev/blog/sveltekit-tutorial-create-a-blog-site/
+
+https://github.com/azukiazusa1/sveltekit-tutorial
+
+
+# docker ps -a
+
+   CONTAINER ID   IMAGE               COMMAND                  
+   86c847d55765   postgres:14         "docker-entrypoint.s…"   
+
+# docker rm 86c847d55765
+
+
+#  docker-compose up -d
+#  docker ps
+       ---  export DATABASE_URL    skip
+       --- echo $DATABASE_URL      skip
+#  npx prisma migrate dev --name init
+#  npm run seed
+#  npx prisma studio
+       http:/127.0.0.1:5555/
+
+-------------- deveropment mode
+
+#  npm run dev
+       http:/127.0.0.1:3000/
+
+open 3000
+
+
+-------------- production mode
+
+# npm run build
+
+# node build/index.js 
+
+

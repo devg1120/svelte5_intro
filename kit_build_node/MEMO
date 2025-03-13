@@ -1,0 +1,29 @@
+
+
+vite preview --host --port 8000
+
+open 8000
+
+-----------------------------------
+npm i -D @sveltejs/adapter-node
+
+svelte.config.js
+
+import adapter from '@sveltejs/adapter-node';
+
+export default {
+	kit: {
+		adapter: adapter()
+	}
+};
+
+
+npm run build
+
+node ./build/index.js
+
+open 8000
+  
+
+
+

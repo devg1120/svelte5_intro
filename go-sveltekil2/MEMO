@@ -1,0 +1,44 @@
+
+GoとSvelteKitの組み合わせ
+
+https://zenn.dev/nobonobo/articles/64902e5b84a1a5
+https://zenn.dev/nobonobo/articles/64902e5b84a1a5
+
+#########################
+開発モード
+バックエンドサーバーを起動します。
+
+go run . -p 8080
+
+別のターミナルにてnpm開発サーバーを起動します（localhost:3000）。
+
+cd frontend; npm run dev
+
+http://localhost:8080/　を開きます。
+
+バックエンドサーバーのAPI以外のアクセスはlocalhost:3000に中継します。
+この場合、npmの開発サーバーのホットリロード機能が機能します。
+
+########################
+frontend ビルドモード
+
+go run . -p 8080
+
+cd frontend
+npm run build
+
+./_start_lighttpd.sh
+
+
+########################
+リリースモード
+go generate -tags release ./...
+go build -tags release -o build/sample .
+
+build/sample
+
+以上の操作でSvelteKitの静的ファイル生成アダプターによる生成物をバイナリに埋め込んだ実行ファイルが出力されます
+
+
+
+

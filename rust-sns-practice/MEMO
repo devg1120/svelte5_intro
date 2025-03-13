@@ -1,0 +1,13 @@
+
+https://github.com/Stead08/rust-sns-practice
+
+docker-compose up -d
+
+cd front
+
+yarn
+
+npm run dev
+
+open 8000
+

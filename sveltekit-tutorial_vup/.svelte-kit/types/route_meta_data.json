@@ -1,0 +1,15 @@
+{
+	"/": [],
+	"/articles": [
+		"src/routes/articles/+page.server.ts"
+	],
+	"/articles/new": [
+		"src/routes/articles/new/+page.server.ts"
+	],
+	"/articles/[id]": [
+		"src/routes/articles/[id]/+page.server.ts"
+	],
+	"/articles/[id]/delete": [
+		"src/routes/articles/[id]/delete/+page.server.ts"
+	]
+}

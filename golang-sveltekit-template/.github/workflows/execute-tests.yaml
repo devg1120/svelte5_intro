@@ -1,0 +1,37 @@
+name: "CI: Test Software"
+
+on:
+  push:
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+    # continue-on-error: true
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: create .env file
+        run: |
+          echo "APP_DATABASE_USERNAME=postgres" >> .env
+          echo "APP_DATABASE_PASSWORD=postgres" >> .env
+          echo "APP_DATABASE_DATABASE=postgres" >> .env
+
+      - name: run backend tests
+        if: ${{ always() }}
+        run: make test-be
+
+      - name: create gosec tmp dir
+        run: mkdir -p /tmp/gosec
+
+      - name: run security checks
+        uses: securego/gosec@master
+        with:
+          args: "-no-fail -fmt html -out ./results.html ./services/backend/..."
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: go-security-report.html
+          path: ./results.html

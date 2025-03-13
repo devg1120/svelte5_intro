@@ -1,0 +1,14 @@
+@import 'variables.scss'
+
+.dark-theme .sidebar
+    background-color: var(--svelteui-colors-dark700)
+    border-right: 0px
+
+.subpage-content
+    margin-left: var(--sidebar-width)
+    &.expandSidebar
+        margin-left: 0
+
+@media (min-width: 1024px)
+    .subpage-content.expandSidebar
+        margin-left: var(--sidebar-width)

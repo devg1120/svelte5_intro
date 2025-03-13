@@ -1,0 +1,108 @@
+
+SvelteKit チュートリアル - 記事投稿サイトを作ってみよう
+
+
+https://azukiazusa.dev/blog/sveltekit-tutorial-create-a-blog-site/
+
+
+npm create vite@latest
+
+github.com/Stead08/rust-sns-practice
+
+### AxumTodo
+ OK
+ https://github.com/Clinton-Nmereole/AxumTodo
+ bug
+
+
+
+### rust-sns-practice  *****
+ OK  VERY GOOD
+ https://github.com/Stead08/rust-sns-practice
+
+   -Rust
+   -Axum (Webフレームワーク)
+   -SeaOrm (非同期処理が可能なORMライブラリ)
+   -SvelteKit　(フロントエンド)
+   -TypeScript
+   -TailwindCSS
+   -Postgres
+   -Docker
+
+### go-embed-spa   *****   go fiber
+  OK GOOD
+  // go + embed svlte + api
+
+  https://github.com/aprakasa/go-embed-spa
+  svelte-kit embed go + docker
+  server: http / echo / fiber
+
+  # make build APP_NAME=fiber
+  # make run APP_NAME=fiber APP_PORT=5050
+
+  open http://127.0.0.1:5050
+
+  # make stop  APP_NAME=fiber
+
+  $$$ local dev mode Action required !!!
+  
+### svelteapp-typescript-go
+  NG
+  frontend  svelte-kit
+  backend   go + sqlite
+
+### go-app
+
+### goapi      % go embedding svelete ****
+    OK GOOD
+    go generate ./...
+    go build
+    ./goapi
+
+### sveltekit-hono-playground
+### kit_build_static
+    OK
+     inport @sveltejs/adapter-static
+     npm run build
+     ./_start_lighttpd.sh
+     open 8000
+
+### kit_build_node
+    OK
+     inport   @sveltejs/adapter-node
+     npm run build
+     node ./build/index.js
+     open 8000
+
+
+### svelte-build-for-lighttpd
+### golang-sveltekit-template
+### grpc_sveltekit
+  NOT
+### go-sveltekil
+  OK GOOD    no docker
+  開発モード
+  リリースモード
+
+### go-sveltekil2
+  OK GOOD    no docker   +fiber
+  開発モード
+  リリースモード
+
+### fast-api-sveltekit
+  NOT
+
+### sveltekit-tutorial_vup
+https://azukiazusa.dev/blog/sveltekit-tutorial-create-a-blog-site/
+  OK
+  rdb docker-compose
+  frontend  svelte-kit
+ 
+  development mode by vite
+  production mode for node
+  
+### sveltekit-tutorial_org  
+https://azukiazusa.dev/blog/sveltekit-tutorial-create-a-blog-site/
+  OK
+  rdb docker-compose
+  frontend  svelte-kit

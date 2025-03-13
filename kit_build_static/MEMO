@@ -1,0 +1,51 @@
+
+
+vite preview --host --port 8000
+
+open 8000
+
+
+-----------------------------------
+npm install -D @sveltejs/adapter-static
+
+
+svelte.config.js ファイルを、以下のように修正します。
+
+
+- import adapter from '@sveltejs/adapter-auto';
++ import adapter from '@sveltejs/adapter-static';
+import preprocess from 'svelte-preprocess';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	preprocess: [
+		preprocess({
+		  postcss: true,
+		}),
+	  ],
+
+	kit: {
+-		adapter: adapter()
++		adapter: adapter({
++    		pages: 'build',
++			assets: 'build',
++			fallback: 'index.html',
++			precompress: false,
++			strict: true
++		})
+	}
+};
+
+export default config;
+
+
+
+npm run build
+
+ ./_start_lighttpd.sh
+
+open 8000
+  
+
+
+

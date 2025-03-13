@@ -1,0 +1,62 @@
+
+https://github.com/alankrantas/svelteapp-typescript-go
+
+https://github.com/alankrantas/svelteapp-typescript-go
+
+
+
+Download Dependencies
+# download frontend dependencies
+yarn
+
+# download backend dependencies
+yarn setup-server
+
+# download both dependencies
+yarn setup-full
+# or
+# yarn setup-all
+Upgrade Dependencies
+# upgrade frontend dependencies
+yarn upgrade-app
+
+# upgrade backend dependencies
+yarn upgrade-server
+
+# upgrade both dependencies
+yarn upgrade-full
+# or
+# yarn upgrade-all
+Build Production
+Install dependencies, build both front-end and back-end apps and run the local server:
+
+# build frontend app
+yarn build-app
+
+# build backend server (which will set CGO_ENABLED=1)
+yarn build-server
+
+# build both
+yarn build-full
+# or
+# yarn build
+# yarn build-all
+
+
+# start backend
+./main
+
+# start frontend
+yarn run serve
+
+
+
+# 以下の方法はapiリクエスト受けれない
+
+./_start_lighttpd.sh
+
+open 3000
+
+
+
+

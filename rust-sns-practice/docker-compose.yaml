@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  rust_web_container:
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres_container:5432/postgres
+      - DOMAIN=localhost:8889
+    build:
+      context: .
+      dockerfile: docker/rust/Dockerfile
+    container_name: rust_web_container
+    ports:
+      - "3000:3000"
+    tty: true
+  postgres_container:
+    container_name: postgres_container
+    build: 
+      context: .
+      dockerfile: docker/postgres/Dockerfile
+    restart: always
+    ports:
+      - "54321:5432"
+    volumes:
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+volumes:
+  postgres_volume:

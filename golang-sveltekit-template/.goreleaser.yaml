@@ -1,0 +1,34 @@
+project_name: go-svelte
+
+builds:
+  - main: ./src
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    # ldflags:
+    #   - -s -w -X main.appversion={{.Version}} -X main.appbuildcommit={{.Commit}} -X main.appbuilddate={{ .CommitDate }}
+
+nfpms:
+  - homepage: "https://github.com/uvulpos/golang-sveltekit-binary"
+    maintainer: "uvulpos@users.noreply.github.com"
+    license: MIT
+    description: "An Awesome Application"
+    id: go-svelte
+    formats:
+      - deb
+      - rpm
+      - apk
+    file_name_template: "{{ .ProjectName }}.{{ .Os }}-{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    bindir: /usr/bin
+
+# .goreleaser.yaml
+universal_binaries:
+  - replace: true
+
+dist: ../../bin
