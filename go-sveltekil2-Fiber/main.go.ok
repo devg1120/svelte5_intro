@@ -1,15 +1,84 @@
 package main
 
+/*
+import (
+	"context"
+	"flag"
+	"fmt"
+	"log"
+	"net"
+	"net/http"
+	"os"
+	"os/signal"
+        "encoding/json"
+        "time"
+)
+*/
 
 import (
 	"github.com/gofiber/fiber/v2"
-        //"github.com/gofiber/fiber/v2/middleware/proxy"
+        "github.com/gofiber/fiber/v2/middleware/proxy"
         "encoding/json"
         "time"
         //"path/filepath"
 	"log"
+	//"github.com/valyala/fasthttp"
+	//"github.com/valyala/fasthttp/fasthttpproxy"
+        //proxy "github.com/yeqown/fasthttp-reverse-proxy/v2"
+
+	//"net/http"
+
 )
 
+/*
+func logger(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log.Print(r.RequestURI)
+		h.ServeHTTP(w, r)
+	})
+}
+*/
+
+/*
+func health(w http.ResponseWriter, r *http.Request) {
+        now := time.Now().Format("2006-01-02 15:04:05")
+        res, err := json.Marshal(map[string]string{
+                "message": "hello from the server",
+                "datetime": now,
+        })
+        if err != nil {
+                http.Error(w, err.Error(), http.StatusBadRequest)
+                return
+        }
+        w.Header().Set("Content-Type", "application/json")
+        w.Write(res)
+
+}
+
+func main() {
+	port := 8080
+	flag.IntVar(&port, "p", 8080, "http listen port")
+	flag.Parse()
+	log.SetFlags(log.Lshortfile)
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
+	defer stop()
+	l, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer l.Close()
+	log.Println("listen:", l.Addr())
+	http.HandleFunc("/api/health", health)
+	server := &http.Server{Handler: logger(http.DefaultServeMux)}
+	go func() {
+		if err := server.Serve(l); err != nil {
+			log.Fatal(err)
+		}
+	}()
+	<-ctx.Done()
+	server.Shutdown(ctx)
+}
+*/
 
 func health(c *fiber.Ctx) error {
         now := time.Now().Format("2006-01-02 15:04:05")
@@ -46,8 +115,20 @@ func main() {
                 log.Println("main app New...")
         }
 
-/*
 	app.Get("/api/health", health)
+
+        //app.Get("/*", proxy.Forward("http://localhost:3000/"))
+
+
+        //c := &fasthttp.Client{
+        //                                   NoDefaultUserAgentHeader: false, 
+        //                                   DisablePathNormalizing:   true,
+        //}
+
+        //app.Get("/", proxy.Forward("http://localhost:3000/",c ))
+        //app.Get("/*", proxy.DomainForward("*","http://localhost:3000/" ))
+        //app.Get("/*", proxy.Forward("http://127.0.0.1:3000/"))
+        //app.Use( "/*", proxy.Forward("http://127.0.0.1:3000/"))
 
 
 	proxyConfig := proxy.Config{
@@ -58,7 +139,7 @@ func main() {
 
 	app.Use(proxy.Balancer(proxyConfig))
 
-*/
+
 
         /*
         var contentTypeMap = map[string]string{

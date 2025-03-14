@@ -3,7 +3,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
-        //"github.com/gofiber/fiber/v2/middleware/proxy"
+        "github.com/gofiber/fiber/v2/middleware/proxy"
         "encoding/json"
         "time"
         //"path/filepath"
@@ -46,7 +46,6 @@ func main() {
                 log.Println("main app New...")
         }
 
-/*
 	app.Get("/api/health", health)
 
 
@@ -58,7 +57,7 @@ func main() {
 
 	app.Use(proxy.Balancer(proxyConfig))
 
-*/
+
 
         /*
         var contentTypeMap = map[string]string{

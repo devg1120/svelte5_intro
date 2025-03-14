@@ -9,10 +9,13 @@ import (
 	"net/http"
 
         //"strings"
-        "fmt"
-        "os"
-        "errors"
-        "path/filepath"
+        //"fmt"
+        //"os"
+        //"errors"
+        //"path/filepath"
+    "github.com/gofiber/fiber/v2"
+    //"github.com/gofiber/fiber/v2/middleware/proxy"
+    "github.com/gofiber/fiber/v2/middleware/filesystem"
 
 )
 
@@ -20,8 +23,9 @@ import (
 
 //go:generate sh -c "cd frontend; npm i; npm run build"
 //go:embed all:frontend/build
-var files embed.FS
+var embedfs embed.FS
 
+/*
 var contentTypeMap = map[string]string{
     ".html": "text/html",
     ".css":  "text/css",
@@ -52,10 +56,28 @@ func SvelteKitHandler(path string) http.Handler {
                 http.FileServer(filesystem).ServeHTTP(w, r)
         })
 }
-
+*/
 
 func init() {
-	//http.Handle("/",SvelteKitHandler("/"))
-	http.Handle("/",SvelteKitHandler("/"))
+
+   app =  fiber.New()
+   log.Println("development mode  app New...")
+
+   app.Get("/api/health", health)
+
+
+   fsys, err  := fs.Sub(embedfs, "frontend/build")
+
+   if err != nil {
+       log.Fatal(err)
+   }
+
+   app.Use("/*", filesystem.New(filesystem.Config{
+  	      Root: http.FS(fsys),
+              Browse:       true,
+              Index:        "index.html",
+              NotFoundFile: "404.html",
+              MaxAge:       3600,
+    }))
 }
 
