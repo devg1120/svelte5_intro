@@ -1,0 +1,24 @@
+
+https://zenn.dev/urakawa_jinsei/articles/a5a222f67a4fac
+
+###  air install
+go install github.com/air-verse/air@latest
+
+
+#cd svelte/
+#npm i 
+#npm start 
+
+cd svelte5kit/
+yarn
+npm run dev
+
+cd ..
+go mod tidy
+air  
+
+browser  open 3000
+
+# PORT
+npm http server       3000
+go-api           3001
