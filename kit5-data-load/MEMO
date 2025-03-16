@@ -1,0 +1,23 @@
+https://zenn.dev/zead/articles/sveltekit-firstapp
+
+
+./src
+├── app.d.ts
+├── app.html
+├── lib
+│   └── index.js
+└── routes
+    ├── +layout.svelte
+    ├── +page.svelte
+    ├── about
+    │   └── +page.svelte
+    └── blog
+        ├── +layout.server.js
+        ├── +page.svelte
+        ├── [slug]
+        │   ├── +layout.svelte
+        │   ├── +page.server.js
+        │   └── +page.svelte
+        └── data.js
+
+5 directories, 12 files

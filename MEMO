@@ -9,6 +9,11 @@ npm create vite@latest
 
 github.com/Stead08/rust-sns-practice
 
+### kit5-data-load
+    データのローディングについて理解する
+    data.js
+    about/+layout.svelte
+
 ### fiber_air_sveltekit
     <= https://github.com/kokizzu/sveltefiber
         go mod tidy
