@@ -20,7 +20,7 @@ http://localhost:8080/　を開きます。
 この場合、npmの開発サーバーのホットリロード機能が機能します。
 
 ########################
-frontend ビルドモード
+lighttpd CSR frontend ビルドモード
 
 go run . -p 8080
 
@@ -29,9 +29,24 @@ npm run build
 
 ./_start_lighttpd.sh
 
-
 ########################
-リリースモード
+node SSR frontend ビルドモード
+
+go run . -p 8080
+
+cd frontend
+
+vi svelte.config.js
+   //import adapter from "@sveltejs/adapter-static";
+   import adapter from "@sveltejs/adapter-node";
+
+npm run build
+
+ node build/index.js 
+
+
+########################  
+CSR リリースモード
 go generate -tags release ./...
 go build -tags release -o build/sample .
 

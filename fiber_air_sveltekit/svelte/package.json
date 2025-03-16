@@ -2,7 +2,7 @@
   "name": "svelte-mpa-app",
   "version": "0.0.0",
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run dev ",
     "watch": "npm run build -- --watch",
     "dev": "node build.js --watch --serve",
     "build": "node build.js",

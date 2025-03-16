@@ -9,6 +9,22 @@ npm create vite@latest
 
 github.com/Stead08/rust-sns-practice
 
+### fiber_air_sveltekit
+    <= https://github.com/kokizzu/sveltefiber
+        go mod tidy
+        
+        # start golang backend
+	go install github.com/cosmtrek/air@latest
+	export PATH=$PATH:$(go env GOPATH)/bin
+        air # localhost:3001 for backend and SSR
+        
+        # start auto recompile
+        cd svelte5kit 
+        npm i && npm start # localhost:3000 for client side dev mode
+
+### go-sveltekil2-Fiber
+    static go-api
+
 ### AxumTodo
  OK
  https://github.com/Clinton-Nmereole/AxumTodo
@@ -30,6 +46,7 @@ github.com/Stead08/rust-sns-practice
    -Docker
 
 ### go-embed-spa   *****   go fiber
+  ###  fiber_air_sveltekit         # +air
   OK GOOD
   // go + embed svlte + api
 

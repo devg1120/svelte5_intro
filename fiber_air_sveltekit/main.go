@@ -25,12 +25,14 @@ func main() {
 	L.PanicIf(err, `os.ReadFile: `+indexFile)
 
 	app.Get("/", func(c *fiber.Ctx) error {
+		log.Println("Get /")
 		tpl := strings.ReplaceAll(string(template), `/*! title */`, `Hewlloo World`)
 		tpl = strings.ReplaceAll(tpl, `[/* raw_data */]`, X.ToJson(model.ListNames()))
 		c.Set("Content-type", "text/html")
 		return c.SendString(tpl)
 	})
 	app.Post("/api/createName", func(c *fiber.Ctx) error {
+		log.Println("Post /api/createName")
 		in := business.CreateNameIn{}
 		if err := c.BodyParser(&in); err != nil {
 			return err
@@ -40,6 +42,7 @@ func main() {
 		return c.JSON(out)
 	})
 	app.Post("/api/deleteName", func(c *fiber.Ctx) error {
+		log.Println("Post /api/deleteName")
 		in := business.DeleteNameIn{}
 		if err := c.BodyParser(&in); err != nil {
 			return err

@@ -88,6 +88,13 @@
 			.querySelector(`[data-key="${event.key}" i]`)
 			?.dispatchEvent(new MouseEvent('click', { cancelable: true, bubbles: true }));
 	}
+
+    const status = fetch("/api/health")   /* GUSA */
+        .then((r) => r.json())
+        .catch((err) => {
+            throw new Error(err);
+        });
+
 </script>
 
 <svelte:window onkeydown={keydown} />
@@ -201,7 +208,19 @@
 		}}
 	></div>
 {/if}
-
+<div>
+<p>
+    <strong>server respond</strong>:
+    {#await status}
+        loading
+    {:then data}
+        {data.message}
+        {data.datetime}  
+    {:catch err}
+        failed to load data
+    {/await}
+</p>
+</div>
 <style>
 	form {
 		width: 100%;

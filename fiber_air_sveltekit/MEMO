@@ -3,6 +3,7 @@ https://zenn.dev/urakawa_jinsei/articles/a5a222f67a4fac
 
 ###  air install
 go install github.com/air-verse/air@latest
+export PATH=$PATH:$(go env GOPATH)/bin
 
 
 #cd svelte/
